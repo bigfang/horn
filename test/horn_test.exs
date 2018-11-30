@@ -1,8 +1,11 @@
 defmodule HornTest do
   use ExUnit.Case
-  doctest Horn
+
+  import ExUnit.CaptureIO
 
   test "greets the world" do
-    assert Horn.hello() == :world
+    assert capture_io(fn ->
+             Horn.say()
+           end) == "Hello, World!\n"
   end
 end

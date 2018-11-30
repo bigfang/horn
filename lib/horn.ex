@@ -4,15 +4,9 @@ defmodule Horn do
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Horn.hello()
-      :world
-
+  Outputs `Hello, World!`
   """
-  def hello do
-    :world
+  def say do
+    IO.puts("Hello, World!")
   end
 end
