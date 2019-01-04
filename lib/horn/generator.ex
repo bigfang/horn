@@ -75,8 +75,6 @@ defmodule Horn.New.Generator do
     binding = [
       app_name: project.app,
       app_module: inspect(project.app_mod),
-      root_app_name: project.root_app,
-      root_app_module: inspect(project.root_mod),
       secret_key_base: random_string(64),
       prod_secret_key_base: random_string(64),
       signing_salt: random_string(8),

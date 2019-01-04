@@ -52,8 +52,6 @@ defmodule Horn.New.Single do
       project
       | project_path: project.base_path,
         app_path: project.base_path,
-        root_app: app,
-        root_mod: Module.concat([Macro.camelize(app)])
     }
   end
 
