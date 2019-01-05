@@ -1,21 +1,32 @@
 # Horn
 
-**TODO: Add description**
+**A weird Flask scaffolding tool, writen in Elixir**
+
+## Prerequisites
+`horn` implemented in elixir language, so you should install elixir first
+
+```bash
+$ brew install elixir
+```
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `horn` to your list of dependencies in `mix.exs`:
+You should install `horn` by using `mix` tool.
 
-```elixir
-def deps do
-  [
-    {:horn, "~> 0.1.0"}
-  ]
-end
+Lastest release version:
+
+```bash
+$ mix archive.install github bigfang/horn branch master
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/horn](https://hexdocs.pm/horn).
+Or develop version:
 
+```bash
+$ mix archive.install github bigfang/horn branch dev
+```
+
+## Start your flask app
+
+```bash
+$ mix horn.new YOUR_APP_NAME
+```
