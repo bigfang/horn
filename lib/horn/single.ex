@@ -5,7 +5,6 @@ defmodule Horn.New.Single do
 
   template(:new, [
     {:text, "horn_single/Pipfile", :project, "Pipfile"},
-    {:text, "horn_single/Pipfile.lock", :project, "Pipfile.lock"},
     {:eex, "horn_single/README.md", :project, "README.md"},
     {:text, "horn_single/gitignore", :project, ".gitignore"},
     {:text, "horn_single/logging.ini", :project, "logging.ini"},
