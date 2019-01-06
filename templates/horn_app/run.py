@@ -54,7 +54,6 @@ def create_app(config=None):
 
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_object(f'<%= app_name %>.configs.{config_obj}')
-    app.config.from_pyfile('prod.cfg', silent=True)
     app.url_map.strict_slashes = False
 
     register_extensions(app)
@@ -66,7 +65,9 @@ def create_app(config=None):
     if config_obj != 'testing':
         register_logging(app)
 
-    if config_obj == 'development':
+    if config_obj == 'production':
+        app.config.from_pyfile('prod.secret.cfg', silent=True)
+    elif config_obj == 'development':
         from app_name.swagger import register_apispec
         register_apispec(app)
 

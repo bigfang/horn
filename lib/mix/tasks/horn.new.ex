@@ -1,6 +1,6 @@
 defmodule Mix.Tasks.Horn.New do
   use Mix.Task
-  alias Horn.New.{Generator, Project, Single}
+  alias Horn.New.{Generator, Project, Flask}
 
   @version Mix.Project.config()[:version]
   @shortdoc "Creates a new Horn v#{@version} application"
@@ -24,10 +24,10 @@ defmodule Mix.Tasks.Horn.New do
   def generate(base_path, opts) do
     base_path
     |> Project.new(opts)
-    |> Single.prepare_project()
+    |> Flask.prepare_project()
     |> Generator.put_binding()
     |> validate_project()
-    |> Single.generate()
+    |> Flask.generate()
     |> prompt_to_install_deps()
   end
 
@@ -79,7 +79,7 @@ defmodule Mix.Tasks.Horn.New do
     Mix.shell().info("""
     Start your flask app with:
         $ pipenv shell
-        $ FLASK_APP=#{app}/run flask run
+        $ FLASK_APP=#{app}.run flask run
     """)
   end
 
