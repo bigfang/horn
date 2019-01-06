@@ -4,7 +4,7 @@ defmodule Horn.New.Single do
   alias Horn.New.{Project}
 
   template(:new, [
-    {:text, "horn_single/Pipfile", :project, "Pipfile"},
+    {:eex, "horn_single/Pipfile", :project, "Pipfile"},
     {:eex, "horn_single/README.md", :project, "README.md"},
     {:text, "horn_single/gitignore", :project, ".gitignore"},
     {:text, "horn_single/logging.ini", :project, "logging.ini"},

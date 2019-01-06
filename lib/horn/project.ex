@@ -6,6 +6,7 @@ defmodule Horn.New.Project do
             app: nil,
             app_mod: nil,
             app_path: nil,
+            pypi: nil,
             project_path: nil,
             opts: :unset,
             binding: [],
@@ -15,11 +16,13 @@ defmodule Horn.New.Project do
     project_path = Path.expand(project_path)
     app = opts[:app] || "app"
     app_mod = opts[:module] || Macro.camelize(Path.basename(project_path))
+    pypi = opts[:pypi] || "pypi.org"
 
     %Project{
       base_path: project_path,
       app: app,
       app_mod: app_mod,
+      pypi: pypi,
       opts: opts
     }
   end

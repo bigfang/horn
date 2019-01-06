@@ -5,7 +5,7 @@ defmodule Mix.Tasks.Horn.New do
   @version Mix.Project.config()[:version]
   @shortdoc "Creates a new Horn v#{@version} application"
 
-  @switches [app: :string, module: :string]
+  @switches [app: :string, module: :string, pypi: :string]
 
   def run([version]) when version in ~w(-v --version) do
     Mix.shell().info("Horn v#{@version}")

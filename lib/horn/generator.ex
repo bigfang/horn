@@ -74,7 +74,8 @@ defmodule Horn.New.Generator do
   def put_binding(%Project{opts: _opts} = project) do
     binding = [
       app_name: project.app,
-      app_module: inspect(project.app_mod),
+      app_module: project.app_mod,
+      pypi: project.pypi,
       secret_key_base: random_string(64),
       prod_secret_key_base: random_string(64),
       signing_salt: random_string(8),
