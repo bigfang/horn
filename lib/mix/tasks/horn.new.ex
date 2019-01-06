@@ -37,14 +37,14 @@ defmodule Mix.Tasks.Horn.New do
     cd_step = ["$ cd #{relative_app_path(project.project_path)}"]
 
     maybe_cd(project.project_path, fn ->
-      pipenv_step = install_pipenv(install?, project)
+      pipenv_step = install_pipenv(install?)
 
       print_missing_steps(cd_step ++ pipenv_step)
       print_flask_steps(project.app)
     end)
   end
   defp maybe_cd(path, func), do: path && File.cd!(path, func)
-  defp install_pipenv(install?, project) do
+  defp install_pipenv(install?) do
     maybe_cmd "pipenv install --dev",
               File.exists?("Pipfile"), install? && System.find_executable("pipenv")
   end

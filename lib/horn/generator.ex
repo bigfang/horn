@@ -71,7 +71,7 @@ defmodule Horn.New.Generator do
     File.write!(file, File.read!(file) <> contents)
   end
 
-  def put_binding(%Project{opts: opts} = project) do
+  def put_binding(%Project{opts: _opts} = project) do
     binding = [
       app_name: project.app,
       app_module: inspect(project.app_mod),
