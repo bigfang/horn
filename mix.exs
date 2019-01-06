@@ -6,6 +6,7 @@ defmodule Horn.MixProject do
       app: :horn,
       version: "0.1.0",
       elixir: "~> 1.7",
+      escript: escript(),
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -16,6 +17,10 @@ defmodule Horn.MixProject do
     [
       extra_applications: [:logger]
     ]
+  end
+
+  defp escript do
+    [main_module: Horn]
   end
 
   # Run "mix help deps" to learn about dependencies.

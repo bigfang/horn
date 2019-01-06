@@ -6,7 +6,7 @@ defmodule Horn do
   @doc """
   Outputs `Hello, World!`
   """
-  def say do
+  def main(_args) do
     IO.puts("Hello, World!")
   end
 end
