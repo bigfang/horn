@@ -16,10 +16,12 @@ Install `horn` by using the build tool `mix`.
 Lastest release version:
 
 ```bash
-$ mix archive.install github bigfang/horn branch master
+$ mix archive.install hex horn
 ```
 
-## Create your flask app
+## Create your Flask app
+
+Now, enjoy with Flask:
 
 ```bash
 $ mix horn.new YOUR_APP_NAME
