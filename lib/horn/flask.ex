@@ -44,6 +44,7 @@ defmodule Horn.New.Flask do
     {:eex, "horn_test/__init__.py", :project, "test/__init__.py"},
     {:eex, "horn_test/conftest.py", :project, "test/conftest.py"},
     {:eex, "horn_test/factories.py", :project, "test/factories.py"},
+    {:text, "horn_test/test_swagger.py", :project, "test/test_swagger.py"},
     {:text, "horn_test/test_home.py", :project, "test/test_home.py"}
   ])
 
