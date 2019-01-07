@@ -1,16 +1,71 @@
 defmodule Mix.Tasks.Horn.New do
-  use Mix.Task
-  alias Horn.New.{Generator, Project, Flask}
-
   @version Mix.Project.config()[:version]
   @shortdoc "Creates a new Horn v#{@version} application"
 
-  @switches [app: :string, module: :string, pypi: :string]
+  @moduledoc """
+  Creates a new Horn-Flask project.
 
-  def run([version]) when version in ~w(-v --version) do
-    Mix.shell().info("Horn v#{@version}")
-  end
+  It expects the path of the project as an argument.
 
+      mix horn.new PATH [--app APP]
+
+  A project at the given PATH will be created. The
+  default app folder name is "app" unless `--app` is given.
+
+  ## Options
+
+  * `--app` - the name of the application folder. default
+    value is `app`
+
+  * `--proj` - the name of the project, the default
+    value is the capitalized given PATH. for example,
+    if the PATH is `foo_bar`, the default project name is
+    `FooBar`
+
+  * `--pypi` - the mirror of pypi, eg: `pypi.doubanio.com`
+
+  ## Example
+
+      mix horn.new foo_bar --app foobar --pypi=pypi.doubanio.com
+
+  the project directory structure looks like:
+
+      .
+      ├── foobar
+      │  ├── configs
+      │  │  └── ...
+      │  ├── core
+      │  │  └── ...
+      │  ├── models
+      │  │  └── ...
+      │  ├── schemas
+      │  │  └── ...
+      │  ├── views
+      │  │  └── ...
+      │  └── ....
+      ├── instance
+      │  └── ...
+      ├── log/
+      ├── test
+      │  └── ...
+      ├── Pipfile
+      ├── README.md
+      └── ...
+
+  you will find:
+
+  * `app` - the `app` folder is renamed to `foobar`.
+
+  * `Pipfile` - in section `[[source]]`, the url become `https://pypi.doubanio.com/simple`
+
+  * `README.md` - the project name is FooBar
+  """
+  use Mix.Task
+  alias Horn.New.{Generator, Project, Flask}
+
+  @switches [app: :string, proj: :string, pypi: :string]
+
+  @doc false
   def run(argv) do
     case parse_opts(argv) do
       {_opts, []} ->
@@ -21,6 +76,7 @@ defmodule Mix.Tasks.Horn.New do
     end
   end
 
+  @doc false
   def generate(base_path, opts) do
     base_path
     |> Project.new(opts)
@@ -34,7 +90,7 @@ defmodule Mix.Tasks.Horn.New do
   defp validate_project(%Project{opts: opts} = project) do
     check_app_name!(project.app, !!opts[:app])
     check_directory_existence!(project.project_path)
-    check_module_name_validity!(project.app_mod)
+    check_project_name_validity!(project.app_mod)
 
     project
   end
@@ -142,9 +198,9 @@ defmodule Mix.Tasks.Horn.New do
     end
   end
 
-  defp check_module_name_validity!(name) do
+  defp check_project_name_validity!(name) do
     unless name =~ recompile(~r/^[A-Z]\w*([A-Z]\w*)*$/) do
-      Mix.raise("Module name must start with an uppercase letter (for example: FooBar), got: #{inspect(name)}")
+      Mix.raise("Project name must start with an uppercase letter (for example: FooBar), got: #{inspect(name)}")
     end
   end
 

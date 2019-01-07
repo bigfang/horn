@@ -1,11 +1,7 @@
 defmodule Horn do
-  @moduledoc """
-  Documentation for Horn.
-  """
+  @moduledoc false
 
-  @doc """
-  Outputs `Hello, World!`
-  """
+  @doc false
   def main(_args) do
     IO.puts("Hello, World!")
   end

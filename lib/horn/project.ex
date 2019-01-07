@@ -15,7 +15,7 @@ defmodule Horn.New.Project do
   def new(project_path, opts) do
     project_path = Path.expand(project_path)
     app = opts[:app] || "app"
-    app_mod = opts[:module] || Macro.camelize(Path.basename(project_path))
+    app_mod = opts[:proj] || Macro.camelize(Path.basename(project_path))
     pypi = opts[:pypi] || "pypi.org"
 
     %Project{
