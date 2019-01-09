@@ -1,4 +1,4 @@
-from marshmallow import fields
+from <%= app_name %>.core.schema import fields
 
 
 class SchemaMixin(object):
@@ -7,7 +7,6 @@ class SchemaMixin(object):
     updated_at = fields.DateTime('%Y-%m-%d %H:%M:%S', dump_only=True)
 
     class Meta:
-        dump_only = ('id', 'inserted_at', 'updated_at')
         strict = True
         ordered = False
         dateformat = '%Y-%m-%d %H:%M:%S'
