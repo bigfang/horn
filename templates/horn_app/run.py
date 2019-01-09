@@ -6,7 +6,7 @@ from flask.helpers import get_env
 from <%= app_name %> import cmds
 from <%= app_name %>.exts import db, migrate, ma, bcrypt
 from <%= app_name %>.router import register_blueprints
-from <%= app_name %>.core.errors import InvalidUsage
+from <%= app_name %>.core.errors import ErrorHandler
 
 
 def register_extensions(app):
@@ -31,11 +31,7 @@ def register_commands(app):
 
 
 def register_errorhandlers(app):
-    def errorhandler(error):
-        response = error.to_json()
-        response.status_code = error.status_code
-        return response
-    app.errorhandler(InvalidUsage)(errorhandler)
+    app.errorhandler(Exception)(ErrorHandler.handler)
 
 
 def register_logging(app):
