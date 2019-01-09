@@ -1,3 +1,5 @@
+from functools import wraps
+
 from sqlalchemy.orm import relationship
 
 from <%= app_name %>.exts import db
@@ -8,29 +10,23 @@ Column = db.Column
 
 
 class CRUDMixin(object):
-    """Mixin that adds convenience methods for CRUD (create, read, update, delete) operations."""
-
     @classmethod
     def create(cls, **kwargs):
-        """Create a new record and save it the database."""
         instance = cls(**kwargs)
         return instance.save()
 
     def update(self, commit=True, **kwargs):
-        """Update specific fields of a record."""
         for attr, value in kwargs.items():
             setattr(self, attr, value)
         return commit and self.save() or self
 
     def save(self, commit=True):
-        """Save the record."""
         db.session.add(self)
         if commit:
             db.session.commit()
         return self
 
     def delete(self, commit=True):
-        """Remove the record from the database."""
         db.session.delete(self)
         return commit and db.session.commit()
 
@@ -85,6 +81,9 @@ class CRUDMixin(object):
             db.session.commit()
         return True
 
+    def commit(self):
+        db.session.commit()
+
     def flush(self):
         db.session.flush()
 
@@ -106,10 +105,33 @@ def reference_col(tablename, nullable=False, pk_name='id', **kwargs):
                      nullable=nullable, **kwargs)
 
 
+def atomic(session, nested=False):
+    def wrapper(func):
+        @wraps(func)
+        def inner(*args, **kwargs):
+            if session.autocommit is True and nested is False:
+                session.begin()  # start a transaction
+
+            try:
+                with session.begin_nested():
+                    resp = func(*args, **kwargs)
+                if not nested:
+                    session.commit()  # transaction finished
+            except Exception as e:
+                if not nested:
+                    session.rollback()
+                    session.remove()
+                raise e
+            return resp
+        return inner
+    return wrapper
+
+
 __all__ = [
     db,
     Model,
     Column,
     relationship,
-    reference_col
+    reference_col,
+    atomic
 ]
