@@ -13,7 +13,7 @@ defmodule Horn.New.Flask do
     {:keep, "horn_proj/log", :project, "log"},
     {:keep, "horn_app/models", :project, ":app/models"},
     {:keep, "horn_app/schemas", :project, ":app/schemas"},
-    {:keep, "horn_app/views", :project, ":app/views"},
+    {:keep, "horn_app/views", :project, ":app/views"}
   ])
 
   template(:app, [
@@ -37,7 +37,7 @@ defmodule Horn.New.Flask do
     {:text, "horn_app/schemas/__init__.py", :project, ":app/schemas/__init__.py"},
     {:text, "horn_app/schemas/helpers.py", :project, ":app/schemas/helpers.py"},
     {:text, "horn_app/views/__init__.py", :project, ":app/views/__init__.py"},
-    {:eex, "horn_app/views/home.py", :project, ":app/views/home.py"},
+    {:eex, "horn_app/views/home.py", :project, ":app/views/home.py"}
   ])
 
   template(:test, [

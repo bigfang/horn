@@ -5,7 +5,7 @@ defmodule HornTest do
 
   test "greets the world" do
     assert capture_io(fn ->
-             Horn.say()
+             Horn.main('arg')
            end) == "Hello, World!\n"
   end
 end
