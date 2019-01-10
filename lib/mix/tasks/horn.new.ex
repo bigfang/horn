@@ -126,7 +126,9 @@ defmodule Mix.Tasks.Horn.New do
 
   defp print_missing_steps(steps) do
     Mix.shell().info("""
+
     We are almost there! The following steps are missing:
+
         #{Enum.join(steps, "\n    ")}
     """)
   end
@@ -134,6 +136,7 @@ defmodule Mix.Tasks.Horn.New do
   defp print_flask_steps(app) do
     Mix.shell().info("""
     Start your flask app with:
+
         $ pipenv shell
         $ FLASK_APP=#{app}.run flask run
     """)
@@ -162,7 +165,7 @@ defmodule Mix.Tasks.Horn.New do
   defp cmd(cmd) do
     Mix.shell().info([:green, "* running ", :reset, cmd])
 
-    case Mix.shell().cmd(cmd, quiet: true) do
+    case Mix.shell().cmd(cmd, quiet: false) do
       0 ->
         []
 

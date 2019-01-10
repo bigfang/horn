@@ -19,5 +19,5 @@ bp = Blueprint('home', __name__)
 @bp.route('/', methods=('GET', ), provide_automatic_options=False)
 def home():
     return jsonify({
-        'message': 'Hello vistor, Welcome to <%= app_module %>!'
+        'message': 'Hello visitor, Welcome to <%= app_module %>!'
     })

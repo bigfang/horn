@@ -1,12 +1,20 @@
 # Horn
 
-*A weird Flask scaffolding tool, writen in Elixir*
+*A weird Flask scaffolding tool for building restful-server, writen in Elixir*
+
+> [Documentation](https://hexdocs.pm/horn)
 
 ## Prerequisites
 `horn` implemented in elixir language, so you should install elixir first:
 
-```bash
+```console
 $ brew install elixir
+```
+
+In python side, `Horn` recommend manages python packages via `pipenv`
+
+```console
+$ pip install pipenv
 ```
 
 ## Installation
@@ -15,7 +23,7 @@ Install `horn` by using the build tool `mix`.
 
 Lastest release version:
 
-```bash
+```console
 $ mix archive.install hex horn
 ```
 
@@ -23,6 +31,6 @@ $ mix archive.install hex horn
 
 Now, enjoy with Flask:
 
-```bash
+```console
 $ mix horn.new YOUR_APP_NAME
 ```

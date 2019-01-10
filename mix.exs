@@ -16,11 +16,13 @@ defmodule Horn.MixProject do
       description: "A weird Flask scaffolding tool",
       docs: [
         extras: [
-          "README.md"
+          "README.md",
+          "guides/quickstart.md",
+          "guides/structure.md"
         ],
         main: "readme",
         source_ref: "#{@version}",
-        source_url: @github,
+        source_url: @github
       ]
     ]
   end
