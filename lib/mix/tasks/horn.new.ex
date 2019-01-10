@@ -127,7 +127,7 @@ defmodule Mix.Tasks.Horn.New do
   defp print_missing_steps(steps) do
     Mix.shell().info("""
 
-    We are almost there! The following steps are missing:
+    The following steps are missing:
 
         #{Enum.join(steps, "\n    ")}
     """)
@@ -170,6 +170,7 @@ defmodule Mix.Tasks.Horn.New do
         []
 
       _ ->
+        Mix.shell().info([:red_background, :bright, "* Error:", :reset, :red, " " <> cmd])
         ["$ #{cmd}"]
     end
   end
