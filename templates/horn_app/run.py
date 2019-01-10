@@ -31,7 +31,7 @@ def register_commands(app):
 
 
 def register_errorhandlers(app):
-    app.errorhandler(Exception)(ErrorHandler.handler)
+    app.register_error_handler(Exception, ErrorHandler.handler)
 
 
 def register_logging(app):

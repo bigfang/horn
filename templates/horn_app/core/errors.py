@@ -1,3 +1,5 @@
+import traceback
+
 from flask import current_app, jsonify
 
 
@@ -30,10 +32,11 @@ def template(msg=None, code=None, detail=None, status=500):
 
     message = {
         'message': msg,
-        'code': code or status
+        'code': code,
+        'detail':detail
     }
     if current_app.env != 'production':
-        message.update({'detail': detail})
+        message.update({'traceback': traceback.format_exc()})
 
     return {
         'message': message,

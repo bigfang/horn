@@ -1,7 +1,7 @@
 defmodule Horn.MixProject do
   use Mix.Project
 
-  @version "0.1.2"
+  @version "0.1.3"
   @github "https://github.com/bigfang/horn"
 
   def project do
@@ -14,13 +14,13 @@ defmodule Horn.MixProject do
       deps: deps(),
       package: package(),
       description: "A weird Flask scaffolding tool",
-      source_url: @github,
-      homepage_url: @github,
       docs: [
         extras: [
           "README.md"
         ],
-        main: "readme"
+        main: "readme",
+        source_ref: "#{@version}",
+        source_url: @github,
       ]
     ]
   end
