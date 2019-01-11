@@ -31,7 +31,7 @@ class CRUDMixin(object):
         return commit and db.session.commit()
 
     @classmethod
-    def exist(cls, id):
+    def exists(cls, id):
         rcd = cls.query.get(id)
         return True and rcd
 
