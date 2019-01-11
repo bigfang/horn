@@ -7,9 +7,8 @@ verify_ssl = true
 flask = "*"
 flask-marshmallow = "*"
 flask-sqlalchemy = "*"
-flask-apispec = "*"
 flask-migrate = "*"
-flask-bcrypt = "*"
+flask-apispec = "*"
 marshmallow-sqlalchemy = "*"
 psycopg2 = "*"
 
