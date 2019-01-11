@@ -9,7 +9,7 @@ defmodule Horn.New.Flask do
     {:eex, "horn_proj/pytest.ini", :project, "pytest.ini"},
     {:eex, "horn_proj/instance/prod.secret.cfg", :project, "instance/prod.secret.cfg"},
     {:text, "horn_proj/gitignore", :project, ".gitignore"},
-    {:text, "horn_proj/logging.ini", :project, "logging.ini"},
+    {:eex, "horn_proj/logging.ini", :project, "logging.ini"},
     {:keep, "horn_proj/log", :project, "log"},
     {:keep, "horn_app/models", :project, ":app/models"},
     {:keep, "horn_app/schemas", :project, ":app/schemas"},
