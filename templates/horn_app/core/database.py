@@ -11,14 +11,14 @@ Column = db.Column
 
 class CRUDMixin(object):
     @classmethod
-    def create(cls, **kwargs):
+    def create(cls, commit=True, **kwargs):
         instance = cls(**kwargs)
-        return instance.save()
+        return instance.save(commit=commit)
 
     def update(self, commit=True, **kwargs):
         for attr, value in kwargs.items():
             setattr(self, attr, value)
-        return commit and self.save() or self
+        return self.save(commit=commit)
 
     def save(self, commit=True):
         db.session.add(self)
@@ -36,7 +36,7 @@ class CRUDMixin(object):
         return True and rcd
 
     @classmethod
-    def upsert(cls, constraint, **kwargs):
+    def upsert(cls, constraint, commit=True, **kwargs):
         q = cls.query
         rcd = None
         if isinstance(constraint, str):
@@ -49,11 +49,11 @@ class CRUDMixin(object):
 
         if not rcd:
             instance = cls(**kwargs)
-            return instance.save()
+            return instance.save(commit=commit)
         else:
             for k, v in kwargs.items():
                 setattr(rcd, k, v)
-            return rcd.save()
+            return rcd.save(commit=commit)
 
     @classmethod
     def insert_many(cls, rcds, commit=True):
