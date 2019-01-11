@@ -28,7 +28,7 @@ defmodule Mix.Tasks.Horn do
     end
   end
 
-  defp general() do
+  defp general do
     Application.ensure_all_started(:horn)
     Mix.shell().info("Horn v#{Application.spec(:horn, :vsn)}")
     Mix.shell().info("\nA Wired Flask Scaffold Tool")

@@ -89,6 +89,6 @@ defmodule Horn.New.Generator do
   defp nil_if_empty(other), do: other
 
   defp random_string(length) do
-    :crypto.strong_rand_bytes(length) |> Base.encode64() |> binary_part(0, length)
+    length |> :crypto.strong_rand_bytes() |> Base.encode64() |> binary_part(0, length)
   end
 end

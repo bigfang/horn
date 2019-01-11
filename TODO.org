@@ -24,6 +24,8 @@
 ** 其他
 *** TODO 支持CI
 *** TODO i18n支持
+*** DONE 引入credo
+- State "DONE"       from "TODO"       [2019-01-11 Fri 20:35]
 *** TODO core模块单测
 *** DONE 获取 ~pipenv install~ 输出
 - State "DONE"       from "MAYBE"      [2019-01-10 Thu 22:30]

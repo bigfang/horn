@@ -61,7 +61,7 @@ defmodule Mix.Tasks.Horn.New do
   * `README.md` - the project name is FooBar
   """
   use Mix.Task
-  alias Horn.New.{Generator, Project, Flask}
+  alias Horn.New.{Flask, Generator, Project}
 
   @switches [app: :string, proj: :string, pypi: :string]
 
@@ -181,11 +181,11 @@ defmodule Mix.Tasks.Horn.New do
   defp check_app_name!(name, from_app_flag) do
     unless name =~ recompile(~r/^[a-z][\w_]*$/) do
       extra =
-        if !from_app_flag do
+        if from_app_flag do
+          ""
+        else
           ". The application name is inferred from the path, if you'd like to " <>
             "explicitly name the application then use the `--app APP` option."
-        else
-          ""
         end
 
       Mix.raise(
