@@ -56,7 +56,7 @@ class CRUDMixin(object):
             return rcd.save(commit=commit)
 
     @classmethod
-    def insert_many(cls, rcds, commit=True):
+    def bulk_save(cls, rcds, commit=True):
         assert isinstance(rcds, list)
         db.session.add_all(rcds)
         if commit:
@@ -64,19 +64,10 @@ class CRUDMixin(object):
         return True
 
     @classmethod
-    def delete_many(cls, rcds, commit=True):
+    def bulk_delete(cls, rcds, commit=True):
         assert isinstance(rcds, list)
         for rcd in rcds:
             db.session.delete(rcd)
-        if commit:
-            db.session.commit()
-        return True
-
-    @classmethod
-    def update_many(cls, rcds, commit=True):
-        assert isinstance(rcds, list)
-        for rcd in rcds:
-            db.session.add(rcd)
         if commit:
             db.session.commit()
         return True
