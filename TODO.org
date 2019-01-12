@@ -8,6 +8,13 @@
 ** mix task
 *** DONE horn.new 
 - State "DONE"       from "DOING"      [2018-12-21 Fri 09:24]
+**** DONE 选项 --app
+- State "DONE"       from              [2019-01-12 Sat 14:39]
+**** DONE 选项 --proj
+- State "DONE"       from              [2019-01-12 Sat 14:39]
+**** DONE 选项 --pypi
+- State "DONE"       from              [2019-01-12 Sat 14:39]
+**** TODO 选项 --bare
 *** TODO horn.gen 
 *** TODO horn.gen.api (horn.gen.json)
 *** TODO horn.gen.model 
@@ -22,8 +29,9 @@
 - State "DONE"       from "TODO"       [2019-01-09 Wed 14:12]
 *** MAYBE 简单日志模块
 ** 其他
-*** TODO 支持CI
-*** TODO i18n支持
+*** TODO 研究distillery打包
+*** MAYBE 支持CI
+*** MAYBE i18n支持
 *** DONE 引入credo
 - State "DONE"       from "TODO"       [2019-01-11 Fri 20:35]
 *** TODO core模块单测
