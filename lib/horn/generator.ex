@@ -71,11 +71,14 @@ defmodule Horn.New.Generator do
     File.write!(file, File.read!(file) <> contents)
   end
 
-  def put_binding(%Project{opts: _opts} = project) do
+  def put_binding(%Project{opts: opts} = project) do
+    bare = Keyword.get(opts, :bare, false)
+
     binding = [
       app_name: project.app,
       app_module: project.app_mod,
       pypi: project.pypi,
+      bare: bare,
       secret_key_base: random_string(64),
       prod_secret_key_base: random_string(64),
       signing_salt: random_string(8),

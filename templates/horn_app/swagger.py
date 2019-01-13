@@ -1,4 +1,5 @@
-from <%= app_name %>.views import home
+from <%= app_name %>.views import home<%= unless bare do %>
+from <%= app_name %>.views import user, session<% end %>
 
 
 def register_apispec(app):
@@ -8,14 +9,24 @@ def register_apispec(app):
     app.config.update({
         'APISPEC_SPEC':
         APISpec(
-            title='APP',
-            version='v1',
+            title='<%= app_module %>',
+            version='v0.1.0',
             plugins=['apispec.ext.marshmallow'],
         ),
-        'APISPEC_SWAGGER_URL': '/spec-json/',
-        'APISPEC_SWAGGER_UI_URL': '/spec/'
+        'APISPEC_SWAGGER_URL': '/spec-json',
+        'APISPEC_SWAGGER_UI_URL': '/spec'
     })
 
     spec = FlaskApiSpec(app)
 
     spec.register(home.home, blueprint='home')
+    <%= unless bare do %>
+    spec.register(user.index, blueprint='user')
+    spec.register(user.create, blueprint='user')
+    spec.register(user.show, blueprint='user')
+    spec.register(user.update, blueprint='user')
+    spec.register(user.delete, blueprint='user')
+
+    spec.register(session.create, blueprint='session')
+    spec.register(session.delete, blueprint='session')
+    <% end %>

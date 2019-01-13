@@ -6,7 +6,7 @@ from <%= app_name %>.core import doc
 bp = Blueprint('home', __name__)
 
 
-@doc(tags=['home'], description='home',
+@doc(tags=['Home'], description='home',
      responses={'200': {
          'description': 'success',
          'schema': {

@@ -19,7 +19,7 @@ defmodule Horn.New.Flask do
   template(:app, [
     {:text, "horn_app/__init__.py", :project, ":app/__init__.py"},
     {:text, "horn_app/cmds.py", :project, ":app/cmds.py"},
-    {:text, "horn_app/exts.py", :project, ":app/exts.py"},
+    {:eex, "horn_app/exts.py", :project, ":app/exts.py"},
     {:eex, "horn_app/router.py", :project, ":app/router.py"},
     {:eex, "horn_app/run.py", :project, ":app/run.py"},
     {:eex, "horn_app/swagger.py", :project, ":app/swagger.py"},
@@ -48,6 +48,14 @@ defmodule Horn.New.Flask do
     {:text, "horn_test/test_home.py", :project, "test/test_home.py"}
   ])
 
+  template(:user, [
+    {:eex, "horn_app/models/user.py", :project, ":app/models/user.py"},
+    {:eex, "horn_app/schemas/user.py", :project, ":app/schemas/user.py"},
+    {:eex, "horn_app/views/user.py", :project, ":app/views/user.py"},
+    {:eex, "horn_app/views/session.py", :project, ":app/views/session.py"},
+    {:eex, "horn_app/helpers.py", :project, ":app/helpers.py"},
+  ])
+
   def prepare_project(%Project{app: app} = project) when not is_nil(app) do
     %Project{
       project
@@ -61,6 +69,12 @@ defmodule Horn.New.Flask do
     copy_from(project, __MODULE__, :app)
     copy_from(project, __MODULE__, :test)
 
+    unless Project.bare(project), do: gen_user(project)
+
     project
+  end
+
+  def gen_user(project) do
+    copy_from(project, __MODULE__, :user)
   end
 end

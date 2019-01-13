@@ -8,7 +8,9 @@ flask = "*"
 flask-marshmallow = "*"
 flask-sqlalchemy = "*"
 flask-migrate = "*"
-flask-apispec = "*"
+flask-apispec = "*"<%= unless bare do %>
+Flask-Bcrypt = "*"
+Flask-Jwt-Extended = "*"<% end %>
 marshmallow-sqlalchemy = "*"
 psycopg2 = "*"
 

@@ -27,6 +27,10 @@ defmodule Horn.New.Project do
     }
   end
 
+  def bare(%Project{binding: binding}) do
+    Keyword.fetch!(binding, :bare)
+  end
+
   def join_path(%Project{} = project, location, path)
       when location in [:project, :app] do
     project

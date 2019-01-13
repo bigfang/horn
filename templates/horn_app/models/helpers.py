@@ -1,4 +1,4 @@
-from <%= app_name %>.exts import db
+from <%= app_name %>.core.database import db
 
 
 # From Mike Bayer's "Building the app" talk

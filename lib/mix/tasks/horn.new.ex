@@ -63,7 +63,7 @@ defmodule Mix.Tasks.Horn.New do
   use Mix.Task
   alias Horn.New.{Flask, Generator, Project}
 
-  @switches [app: :string, proj: :string, pypi: :string]
+  @switches [app: :string, proj: :string, pypi: :string, bare: :boolean]
 
   @doc false
   def run(argv) do
