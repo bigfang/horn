@@ -13,6 +13,7 @@ class User(Model):
                          server_default=db.func.now())
     updated_at = Column(db.DateTime, nullable=False, index=True,
                         server_default=db.func.now(), onupdate=db.func.now())
+    token: str = ''
 
 
     def __init__(self, username, email, password=None, **kwargs):

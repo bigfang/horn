@@ -1,7 +1,7 @@
 from flask import url_for
 
 
-class TestHomeViews(object):
+class TestHome(object):
 
     def test_home(self, testapp):
         resp = testapp.get(url_for('home.home'))

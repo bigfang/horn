@@ -29,7 +29,7 @@
 - State "DONE"       from "TODO"       [2019-01-09 Wed 14:12]
 *** MAYBE 简单日志模块
 ** 其他
-*** TODO 研究distillery打包
+*** TODO 发布二进制包
 *** MAYBE 支持CI
 *** MAYBE i18n支持
 *** DONE 引入credo

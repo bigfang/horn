@@ -1,4 +1,8 @@
-from <%= app_name %>.core.schema import fields
+from <%= app_name %>.core.schema import fields, Schema
+
+
+class EmptySchema(Schema):
+    pass
 
 
 class SchemaMixin(object):

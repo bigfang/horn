@@ -1,13 +1,17 @@
+from flask import url_for
+
 import pytest
 from webtest import TestApp
 
 from <%= app_name %>.run import create_app
 from <%= app_name %>.core.database import db as _db
+<%= unless bare do  %>
+from .factories import UserFactory
+<% end %>
 
 
 @pytest.fixture(scope='session')
 def app():
-    """An application for the tests."""
     _app = create_app('test')
 
     with _app.app_context():
@@ -23,13 +27,11 @@ def app():
 
 @pytest.fixture(scope='session')
 def testapp(app):
-    """A Webtest app."""
     return TestApp(app)
 
 
 @pytest.fixture(scope='module')
 def testdb(app):
-    """A database for the tests."""
     _db.app = app
     with app.app_context():
         _db.create_all()
@@ -39,3 +41,24 @@ def testdb(app):
     # Explicitly close DB connection
     _db.session.close()
     _db.drop_all()
+
+
+<%= unless bare do  %>
+@pytest.fixture
+def user(testdb):
+    user = UserFactory(password='wordpass')
+    user.save()
+    return user
+
+@pytest.fixture
+def login_user(testdb, testapp):
+    user = UserFactory(password='iamloggedin')
+    user.save()
+    testapp.post_json(url_for('session.create'), {
+        'username': user.username,
+        'password': 'iamloggedin'
+    })
+    testapp.authorization = ('Bearer', user.token)
+
+    return user
+<% end %>

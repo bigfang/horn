@@ -4,7 +4,7 @@ from flask import Flask
 from flask.helpers import get_env
 
 from <%= app_name %> import cmds
-from <%= app_name %>.exts import db, migrate, ma
+from <%= app_name %>.exts import db, migrate, ma<%= unless bare do %>, bcrypt, jwt<% end %>
 from <%= app_name %>.router import register_blueprints
 from <%= app_name %>.core.errors import ErrorHandler
 
@@ -13,6 +13,10 @@ def register_extensions(app):
     db.init_app(app)
     migrate.init_app(app, db)
     ma.init_app(app)
+    <%= unless bare do %>
+    bcrypt.init_app(app)
+    jwt.init_app(app)
+    <% end %>
 
 
 def register_shellcontext(app):

@@ -60,7 +60,7 @@ defmodule Horn.New.Generator do
           append_to(Path.dirname(target), Path.basename(target), mod.render(name, source))
 
         :eex ->
-          contents = EEx.eval_string(mod.render(name, source), project.binding, file: source)
+          contents = EEx.eval_string(mod.render(name, source), project.binding, file: source, trim: true)
           create_file(target, contents)
       end
     end
