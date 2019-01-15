@@ -32,11 +32,11 @@ defmodule Horn.New.Flask do
     {:eex, "horn_app/configs/development.py", :project, ":app/configs/development.py"},
     {:eex, "horn_app/configs/production.py", :project, ":app/configs/production.py"},
     {:eex, "horn_app/configs/testing.py", :project, ":app/configs/testing.py"},
-    {:text, "horn_app/models/__init__.py", :project, ":app/models/__init__.py"},
+    {:eex, "horn_app/models/__init__.py", :project, ":app/models/__init__.py"},
     {:eex, "horn_app/models/helpers.py", :project, ":app/models/helpers.py"},
-    {:text, "horn_app/schemas/__init__.py", :project, ":app/schemas/__init__.py"},
+    {:eex, "horn_app/schemas/__init__.py", :project, ":app/schemas/__init__.py"},
     {:eex, "horn_app/schemas/helpers.py", :project, ":app/schemas/helpers.py"},
-    {:text, "horn_app/views/__init__.py", :project, ":app/views/__init__.py"},
+    {:eex, "horn_app/views/__init__.py", :project, ":app/views/__init__.py"},
     {:eex, "horn_app/views/home.py", :project, ":app/views/home.py"}
   ])
 
