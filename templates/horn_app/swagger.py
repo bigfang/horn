@@ -1,5 +1,7 @@
-from <%= app_name %>.views import home<%= unless bare do %>
-from <%= app_name %>.views import user, session<% end %>
+from <%= app_name %>.views import home
+<%= unless bare do %>
+from <%= app_name %>.views import user, session
+<% end %>
 
 
 def register_apispec(app):

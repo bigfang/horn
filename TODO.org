@@ -44,4 +44,4 @@
 - State "DONE"       from              [2019-01-08 Tue 11:48]
 ** Known Issues
 *** pytest.ini中FLASK_APP设置
-
+*** 单测出错时打印错误栈

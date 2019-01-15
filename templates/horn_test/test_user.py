@@ -28,8 +28,8 @@ class TestUser(object):
     def test_create(self, testapp):
         resp = _register_user(testapp)
         assert resp.status_code == 201
-        assert sorted(resp.json.keys()) == ['email', 'inserted_at', 'token',
-                                            'updated_at', 'username']
+        assert sorted(resp.json.keys()) == ['email', 'id', 'inserted_at',
+                                            'token', 'updated_at', 'username']
         assert resp.json['username'] == 'horn'
         assert resp.json['email'] == 'test@horn.example'
 

@@ -5,16 +5,16 @@ from <%= app_name %>.exts import bcrypt
 class User(Model):
     __tablename__ = 'users'
 
-    id = Column(db.Integer, primary_key=True)
-    username = Column(db.String(), unique=True, nullable=False)
-    email = Column(db.String(), unique=True, nullable=False)
+    id = Column(db.Integer, primary_key=True, doc='id')
+    username = Column(db.String(), unique=True, nullable=False, index=True, doc='user name')
+    email = Column(db.String(), unique=True, nullable=False, index=True, doc='password')
     password = Column(db.Binary(128), nullable=True)
     inserted_at = Column(db.DateTime, nullable=False, index=True,
-                         server_default=db.func.now())
+                         server_default=db.func.now(), doc='insert time')
     updated_at = Column(db.DateTime, nullable=False, index=True,
-                        server_default=db.func.now(), onupdate=db.func.now())
-    token: str = ''
-
+                        server_default=db.func.now(), onupdate=db.func.now(),
+                        doc='update time')
+    token: str = None
 
     def __init__(self, username, email, password=None, **kwargs):
         Model.__init__(self, username=username, email=email, **kwargs)

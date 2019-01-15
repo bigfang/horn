@@ -50,6 +50,7 @@ def user(testdb):
     user.save()
     return user
 
+
 @pytest.fixture
 def login_user(testdb, testapp):
     user = UserFactory(password='iamloggedin')

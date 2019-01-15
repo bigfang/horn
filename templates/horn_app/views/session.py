@@ -4,7 +4,7 @@ from flask_jwt_extended import jwt_required, create_access_token
 from <%= app_name %>.core import doc, use_kwargs, marshal_with
 from <%= app_name %>.core.errors import <%= app_module %>Error
 from <%= app_name %>.models import User
-from <%= app_name %>.schemas import UserSchema, EmptySchema
+from <%= app_name %>.schemas import UserSchema
 
 
 bp = Blueprint('session', __name__)
@@ -27,6 +27,6 @@ def create(username, password, email):
 @doc(tags=['Session'], description='delete session')
 @bp.route('/sessions', methods=['DELETE'], provide_automatic_options=False)
 @jwt_required
-# @marshal_with(EmptySchema, code=204)
+@marshal_with(None, code=204)   # FIXME
 def delete():
-    return jsonify({'message': 'success', 'code': 204})  # FIXME
+    return True

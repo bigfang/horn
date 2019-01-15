@@ -14,7 +14,7 @@ class UserSchema(ModelSchema, SchemaMixin):
     class Meta:
         strict = True
         model = User
-        fields = ('username', 'password', 'email', 'token', 'inserted_at',
+        fields = ('id', 'username', 'password', 'email', 'token', 'inserted_at',
                   'updated_at')
         load_only = ('password',)
         dump_only = ('inserted_at', 'updated_at', 'token')

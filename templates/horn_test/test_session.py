@@ -12,14 +12,14 @@ def _register_user(testapp):
 class TestSession(object):
 
     def test_success_create(self, testapp):
-        _resp = _register_user(testapp)
+        _register_user(testapp)
         resp = testapp.post_json(url_for('session.create'), {
             'username': 'horn',
             'password': 'hornsecret'
         })
         assert resp.status_code == 201
-        assert sorted(resp.json.keys()) == ['email', 'inserted_at', 'token',
-                                            'updated_at', 'username']
+        assert sorted(resp.json.keys()) == ['email', 'id', 'inserted_at',
+                                            'token', 'updated_at', 'username']
         assert resp.json['username'] == 'horn'
         assert resp.json['email'] == 'test@horn.example'
 

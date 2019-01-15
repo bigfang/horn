@@ -1,9 +1,12 @@
-from factory.alchemy import SQLAlchemyModelFactory<%= unless bare do %>
-from factory import PostGenerationMethodCall, Sequence<% end %>
+from factory.alchemy import SQLAlchemyModelFactory
+<%= unless bare do %>
+from factory import PostGenerationMethodCall, Sequence
+<% end %>
 
-from <%= app_name %>.core.database import db<%= unless bare do %>
-from <%= app_name %>.models import User<% end %>
-
+from <%= app_name %>.core.database import db
+<%= unless bare do %>
+from <%= app_name %>.models import User
+<% end %>
 
 
 class BaseFactory(SQLAlchemyModelFactory):
@@ -13,6 +16,7 @@ class BaseFactory(SQLAlchemyModelFactory):
         """Factory configuration."""
         abstract = True
         sqlalchemy_session = db.session
+
 
 <%= unless bare do %>
 class UserFactory(BaseFactory):
