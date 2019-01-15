@@ -10,5 +10,5 @@ SECRET_KEY = '<%= secret_key_base %>'
 BCRYPT_LOG_ROUNDS = 13
 <% end %>
 
-SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@localhost/app'
+SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@localhost/<%= app_name %>'
 SQLALCHEMY_TRACK_MODIFICATIONS = False

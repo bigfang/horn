@@ -104,6 +104,12 @@ defmodule Mix.Tasks.Horn.New do
       pipenv_step = install_pipenv(install?)
 
       print_missing_steps(cd_step ++ pipenv_step)
+      print_env_steps(project.app)
+
+      unless Keyword.get(project.binding, :bare) do
+        print_migrate_steps(project.app)
+      end
+
       print_flask_steps(project.app)
     end)
   end
@@ -133,12 +139,31 @@ defmodule Mix.Tasks.Horn.New do
     """)
   end
 
+  defp print_env_steps(app) do
+    Mix.shell().info("""
+    Then configure your flask environment variables:
+
+        $ export FLASK_ENV=development
+        $ export FLASK_APP=#{app}.run
+    """)
+  end
+
+  defp print_migrate_steps(app) do
+    Mix.shell().info("""
+    And configure your database in #{app}/configs/development.py and run
+
+        $ flask db init
+        $ flask db migrate
+        $ flask db upgrade
+    """)
+  end
+
   defp print_flask_steps(app) do
     Mix.shell().info("""
     Start your flask app with:
 
         $ pipenv shell
-        $ FLASK_APP=#{app}.run flask run
+        $ flask run
     """)
   end
 
