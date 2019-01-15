@@ -24,9 +24,12 @@ defmodule Mix.Tasks.Horn.New do
 
   * `--pypi` - the mirror of pypi, eg: `pypi.doubanio.com`
 
+  * `--bare` - if set, horn will create a bare project without
+    `user` module
+
   ## Example
 
-      mix horn.new foo_bar --app foobar --pypi=pypi.doubanio.com
+      mix horn.new foo_bar --app foobar --pypi=pypi.doubanio.com --bare
 
   the project directory structure looks like:
 
