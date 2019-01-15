@@ -3,14 +3,6 @@ import pytest
 from flask import url_for
 
 
-def _register_user(testapp):
-    return testapp.post_json(url_for('user.create'), {
-        'username': 'horn',
-        'email': 'test@horn.example',
-        'password': 'hornsecret'
-    })
-
-
 class TestUser(object):
 
     @pytest.fixture(scope='function', autouse=True)
@@ -26,7 +18,11 @@ class TestUser(object):
         assert resp.status_code == 200
 
     def test_create(self, testapp):
-        resp = _register_user(testapp)
+        resp = testapp.post_json(url_for('user.create'), {
+            'username': 'horn',
+            'email': 'test@horn.example',
+            'password': 'hornsecret'
+        })
         assert resp.status_code == 201
         assert sorted(resp.json.keys()) == ['email', 'id', 'inserted_at',
                                             'token', 'updated_at', 'username']
