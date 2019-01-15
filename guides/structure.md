@@ -52,16 +52,21 @@ when expanded:
 │  └── schema.py
 ├── models
 │  ├── __init__.py
-│  └── helpers.py
+│  ├── helpers.py
+│  └── user.py
 ├── schemas
 │  ├── __init__.py
-│  └── helpers.py
+│  ├── helpers.py
+│  └── user.py
 ├── views
 │  ├── __init__.py
-│  └── home.py
+│  ├── home.py
+│  ├── session.py
+│  └── user.py
 ├── __init__.py
 ├── cmds.py
 ├── exts.py
+├── helpers.py
 ├── router.py
 ├── run.py
 └── swagger.py
@@ -77,6 +82,7 @@ when expanded:
   most of the bussiness layer codes. *home.py* performs a hello world as example
 - `cmds.py` - custom flask commands saved here
 - `exts.py` - flask extensions configures saved here
+- `helpers.py` - global helper functions
 - `router.py` - the application's routers saved here, in flask, also called `blueprints`
 - `run.py` - the entry of the application
 - `swagger.py` - *swagger* configures saved here

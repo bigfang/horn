@@ -113,7 +113,7 @@ defmodule Mix.Tasks.Horn.New do
         print_migrate_steps(project.app)
       end
 
-      print_flask_steps(project.app)
+      print_flask_steps()
     end)
   end
 
@@ -156,12 +156,12 @@ defmodule Mix.Tasks.Horn.New do
     And configure your database in #{app}/configs/development.py and run
 
         $ flask db init
-        $ flask db migrate
+        $ flask db migrate -m "init"
         $ flask db upgrade
     """)
   end
 
-  defp print_flask_steps(app) do
+  defp print_flask_steps() do
     Mix.shell().info("""
     Start your flask app with:
 
