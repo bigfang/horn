@@ -16,6 +16,7 @@
 - State "DONE"       from              [2019-01-12 Sat 14:39]
 **** DONE 选项 --bare
 - State "DONE"       from "TODO"       [2019-01-15 Tue 21:04]
+*** TODO horn.new.git
 *** TODO horn.gen 
 *** TODO horn.gen.api (horn.gen.json)
 *** TODO horn.gen.model 
