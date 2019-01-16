@@ -147,7 +147,7 @@ defmodule Mix.Tasks.Horn.New do
     Then configure your flask environment variables:
 
         $ export FLASK_ENV=development
-        $ export FLASK_APP=#{app}.run
+        $ export FLASK_APP=#{app}
     """)
   end
 

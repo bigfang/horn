@@ -43,7 +43,7 @@ We are almost there! The following steps are missing:
 Then configure your flask environment variables:
 
     $ export FLASK_ENV=development
-    $ export FLASK_APP=app.run
+    $ export FLASK_APP=app
 
 And configure your database in app/configs/development.py and run
 
@@ -66,7 +66,7 @@ $ pipenv shell
 ...
 ...
 (blog) $ flask run 
- * Serving Flask app "app.run" (lazy loading)
+ * Serving Flask app "app" (lazy loading)
  * Environment: development
  * Debug mode: on
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
@@ -120,13 +120,13 @@ Not bad, all tests passed!
 To run application in production mode, try this:
 
 ```console
-(blog) $ FLASK_ENV=production FLASK_APP=app.run flask run
+(blog) $ FLASK_ENV=production FLASK_APP=app flask run
 ```
 
 We will see output similar to this:
 
 ```console
- * Serving Flask app "app.run"
+ * Serving Flask app "app"
  * Environment: production
    WARNING: Do not use the development server in a production environment.
    Use a production WSGI server instead.

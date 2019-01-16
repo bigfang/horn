@@ -72,6 +72,3 @@ def create_app(config=None):
         register_apispec(app)
 
     return app
-
-
-app = create_app()
