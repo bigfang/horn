@@ -9,7 +9,7 @@ from <%= app_name %>.exts import db
 Column = db.Column
 
 
-class CRUDMixin(object):
+class __CRUDMixin(object):
     @classmethod
     def create(cls, commit=True, **kwargs):
         instance = cls(**kwargs)
@@ -79,7 +79,7 @@ class CRUDMixin(object):
         db.session.flush()
 
 
-class Model(CRUDMixin, db.Model):
+class Model(__CRUDMixin, db.Model):
     """Base model class that includes CRUD convenience methods."""
     __abstract__ = True
 
@@ -119,10 +119,10 @@ def atomic(session, nested=False):
 
 
 __all__ = [
-    db,
-    Model,
-    Column,
-    relationship,
-    reference_col,
-    atomic
+    'db',
+    'Model',
+    'Column',
+    'relationship',
+    'reference_col',
+    'atomic'
 ]

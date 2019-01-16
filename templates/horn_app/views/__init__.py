@@ -6,8 +6,8 @@ from . import session
 
 
 __all__ = [
-    home<%= unless bare do %>,
-    user,
-    session
+    'home'<%= unless bare do %>,
+    'user',
+    'session'
     <% end %>
 ]

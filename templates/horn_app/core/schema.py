@@ -12,12 +12,12 @@ class ModelSchema(marshmallow.ModelSchema):
 
 
 __all__ = [
-    marshmallow,
-    ModelSchema,
-    Schema,
-    fields,
-    pre_load,
-    post_load,
-    pre_dump,
-    post_dump
+    'marshmallow',
+    'ModelSchema',
+    'Schema',
+    'fields',
+    'pre_load',
+    'post_load',
+    'pre_dump',
+    'post_dump'
 ]

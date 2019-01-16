@@ -6,8 +6,8 @@ from . import errors
 
 
 __all__ = [
-    doc, use_kwargs, marshal_with,
-    database,
-    schema,
-    errors
+    'doc', 'use_kwargs', 'marshal_with',
+    'database',
+    'schema',
+    'errors'
 ]
