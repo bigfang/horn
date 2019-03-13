@@ -6,6 +6,7 @@ from <%= app_name %>.views import user, session
 
 def register_apispec(app):
     from apispec import APISpec
+    from apispec.ext.marshmallow import MarshmallowPlugin
     from flask_apispec.extension import FlaskApiSpec
 
     app.config.update({
@@ -13,7 +14,8 @@ def register_apispec(app):
         APISpec(
             title='<%= app_module %>',
             version='v0.1.0',
-            plugins=['apispec.ext.marshmallow'],
+            openapi_version='2.0',
+            plugins=[MarshmallowPlugin()],
         ),
         'APISPEC_SWAGGER_URL': '/spec-json',
         'APISPEC_SWAGGER_UI_URL': '/spec'

@@ -1,7 +1,7 @@
 defmodule Horn.MixProject do
   use Mix.Project
 
-  @version "0.1.5"
+  @version "0.1.6"
   @github "https://github.com/bigfang/horn"
 
   def project do
