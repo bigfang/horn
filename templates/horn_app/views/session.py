@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify
-from flask_jwt_extended import jwt_required, create_access_token
+from flask_jwt_extended import create_access_token
 
-from <%= app_name %>.core import doc, use_kwargs, marshal_with
+from <%= app_name %>.core import jwt_required, doc, use_kwargs, marshal_with
 from <%= app_name %>.core.errors import <%= app_module %>Error
 from <%= app_name %>.models import User
 from <%= app_name %>.schemas import UserSchema

@@ -1,9 +1,8 @@
 from flask import Blueprint
-from flask_jwt_extended import jwt_required
 
 from sqlalchemy.exc import IntegrityError
 
-from <%= app_name %>.core import doc, use_kwargs, marshal_with
+from <%= app_name %>.core import jwt_required, doc, use_kwargs, marshal_with
 from <%= app_name %>.core.database import db, atomic
 from <%= app_name %>.models import User
 from <%= app_name %>.schemas import UserSchema
