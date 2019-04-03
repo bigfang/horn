@@ -57,6 +57,7 @@ def create_app(config=None):
     app.url_map.strict_slashes = False
 
     register_extensions(app)
+    register_shellcontext(app)
     register_blueprints(app)
     register_errorhandlers(app)
     register_commands(app)
@@ -67,8 +68,6 @@ def create_app(config=None):
     if config_obj == 'production':
         app.config.from_pyfile('prod.secret.cfg', silent=True)
     else:
-        register_shellcontext(app)
-
         from <%= app_name %>.swagger import register_apispec
         register_apispec(app)
 

@@ -19,19 +19,22 @@
 *** TODO horn.new.git
 *** TODO horn.gen 
 *** TODO horn.gen.api (horn.gen.json)
+*** TODO horn.gen.secret
 *** TODO horn.gen.model 
 *** TODO horn.gen.schema 
 *** TODO horn.gen.view 
 *** MAYBE horn.gen.task  (celery 支持)
 ** 模板增强
-*** TODO 分页性能
+*** MAYBE 分页性能
 *** DONE 可定制app名称
 - State "DONE"       from "TODO"       [2019-01-08 Tue 11:46]
 *** DONE 更友好的错误处理
 - State "DONE"       from "TODO"       [2019-01-09 Wed 14:12]
 *** MAYBE 简单日志模块
+*** TODO 在cookies中存储jwt token
 ** 其他
-*** TODO 发布二进制包
+*** TODO mix task发布二进制包
+*** TODO 支持pip打包
 *** MAYBE 支持CI
 *** MAYBE i18n支持
 *** DONE 引入credo
