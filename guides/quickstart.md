@@ -53,8 +53,7 @@ And configure your database in app/configs/development.py and run
 
 Start your flask app with:
 
-    $ pipenv shell
-    $ flask run
+    $ pipenv run flask run
 ```
 
 OK, let's try it. follow the steps above:

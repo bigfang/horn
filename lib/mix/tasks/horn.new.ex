@@ -165,8 +165,7 @@ defmodule Mix.Tasks.Horn.New do
     Mix.shell().info("""
     Start your flask app with:
 
-        $ pipenv shell
-        $ flask run
+        $ pipenv run flask run
     """)
   end
 
