@@ -35,7 +35,7 @@ defmodule Mix.Tasks.Horn.New do
 
       .
       ├── foobar
-      │  ├── configs
+      │  ├── config
       │  │  └── ...
       │  ├── core
       │  │  └── ...
@@ -153,7 +153,7 @@ defmodule Mix.Tasks.Horn.New do
 
   defp print_migrate_steps(app) do
     Mix.shell().info("""
-    And configure your database in #{app}/configs/development.py and run
+    And configure your database in #{app}/config/development.py and run
 
         $ flask db init
         $ flask db migrate -m "init"

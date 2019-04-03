@@ -45,7 +45,7 @@ Then configure your flask environment variables:
     $ export FLASK_ENV=development
     $ export FLASK_APP=app
 
-And configure your database in app/configs/development.py and run
+And configure your database in app/config/development.py and run
 
     $ flask db init
     $ flask db migrate -m "init"

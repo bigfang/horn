@@ -53,7 +53,7 @@ def create_app(config=None):
     config_obj = conf_map.get(config) or get_env()
 
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_object(f'<%= app_name %>.configs.{config_obj}')
+    app.config.from_object(f'<%= app_name %>.config.{config_obj}')
     app.url_map.strict_slashes = False
 
     register_extensions(app)
