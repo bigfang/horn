@@ -15,7 +15,7 @@ def register_apispec(app):
             title='<%= app_module %>',
             version='v0.1.0',
             openapi_version='2.0',
-            plugins=[MarshmallowPlugin()],
+            plugins=[MarshmallowPlugin()]
         ),
         'APISPEC_SWAGGER_URL': '/spec-json',
         'APISPEC_SWAGGER_UI_URL': '/spec'

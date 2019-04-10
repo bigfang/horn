@@ -19,8 +19,7 @@
 *** TODO horn.new.git
 *** TODO horn.gen 
 *** TODO horn.gen.api (horn.gen.json)
-*** TODO horn.gen.secret
-*** TODO horn.gen.model 
+*** DOING horn.gen.model 
 *** TODO horn.gen.schema 
 *** TODO horn.gen.view 
 *** MAYBE horn.gen.task  (celery 支持)
@@ -35,6 +34,8 @@
 ** 其他
 *** TODO mix task发布二进制包
 *** TODO 支持pip打包
+*** TODO 增加service层
+*** TODO 发布二进制包
 *** MAYBE 支持CI
 *** MAYBE i18n支持
 *** DONE 引入credo
