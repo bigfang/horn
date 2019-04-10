@@ -45,7 +45,7 @@ defmodule Horn.New.Flask do
     {:eex, "horn_test/conftest.py", :project, "test/conftest.py"},
     {:eex, "horn_test/factories.py", :project, "test/factories.py"},
     {:text, "horn_test/test_swagger.py", :project, "test/test_swagger.py"},
-    {:text, "horn_test/test_home.py", :project, "test/test_home.py"}
+    {:text, "horn_test/views/test_home.py", :project, "test/views/test_home.py"}
   ])
 
   template(:user, [
@@ -54,8 +54,9 @@ defmodule Horn.New.Flask do
     {:eex, "horn_app/views/user.py", :project, ":app/views/user.py"},
     {:eex, "horn_app/views/session.py", :project, ":app/views/session.py"},
     {:eex, "horn_app/helpers.py", :project, ":app/helpers.py"},
-    {:text, "horn_test/test_user.py", :project, "test/test_user.py"},
-    {:text, "horn_test/test_session.py", :project, "test/test_session.py"}
+    {:text, "horn_test/views/__init__.py", :project, "test/views/__init__.py"},
+    {:text, "horn_test/views/test_user.py", :project, "test/views/test_user.py"},
+    {:text, "horn_test/views/test_session.py", :project, "test/views/test_session.py"}
   ])
 
   def prepare_project(%Project{app: app} = project) when not is_nil(app) do

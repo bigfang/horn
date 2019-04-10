@@ -161,7 +161,7 @@ defmodule Mix.Tasks.Horn.New do
     """)
   end
 
-  defp print_flask_steps() do
+  defp print_flask_steps do
     Mix.shell().info("""
     Start your flask app with:
 

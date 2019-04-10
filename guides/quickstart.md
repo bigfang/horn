@@ -9,8 +9,8 @@ $ mix horn.new blog
 * creating blog/README.md
 * creating blog/pytest.ini
 ...
-* creating blog/test/test_user.py
-* creating blog/test/test_session.py
+* creating blog/test/views/test_user.py
+* creating blog/test/views/test_session.py
 
 Fetch and install dependencies? [Yn]
 ```
@@ -97,16 +97,11 @@ The application created by Horn contains sample unit tests. Let's run tests:
 ...
 collected 10 items
 
-test/test_home.py::TestHome::test_home PASSED
-test/test_session.py::TestSession::test_success_create PASSED
-test/test_session.py::TestSession::test_failed_create PASSED
-test/test_session.py::TestSession::test_delete PASSED
 test/test_swagger.py::TestSwagger::test_swagger PASSED
-test/test_user.py::TestUser::test_index PASSED
-test/test_user.py::TestUser::test_create PASSED
-test/test_user.py::TestUser::test_show PASSED
-test/test_user.py::TestUser::test_update PASSED
-test/test_user.py::TestUser::test_delete PASSED
+test/views/test_home.py::TestHome::test_home PASSED
+...
+test/views/test_user.py::TestUser::test_update PASSED
+test/views/test_user.py::TestUser::test_delete PASSED
 ...
 ...
 ```
